@@ -1,4 +1,3 @@
-import type { Request, Response } from 'express';
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -14,7 +13,7 @@ app.use(
   }),
 );
 
-app.get('/books/:id', (req: Request, res: Response) => {
+app.get('/books/:id', (req, res) => {
   readFile(`${process.cwd()}/mocks/books.json`, 'utf8', (err, data) => {
     const books = JSON.parse(data);
     res.send(books[req.params['id']]);
