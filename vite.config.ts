@@ -9,7 +9,7 @@ export default defineConfig({
     vue(),
     AutoImport({
       imports: ['vue'],
-      dts: '/client/auto-imports.d.ts',
+      dts: './client/auto-imports.d.ts',
     }),
   ],
   resolve: {
