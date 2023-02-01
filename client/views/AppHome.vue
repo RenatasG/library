@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="px-5 text-xl">hello</div>
+  <div class="text-xl h-full">hello</div>
 </template>
