@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "watch": "tsc ./server/*.ts -w --esModuleInterop",
-    "dev:client": "vite",
-    "dev:server": "nodemon --watch './server/*.ts' --exec 'ts-node' ./server/index.ts",
+    "dev:c": "vite",
+    "dev:s": "nodemon --watch './server/*.ts' --exec 'ts-node' ./server/index.ts",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
@@ -17,6 +17,7 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.15",
     "@types/node": "^18.11.18",

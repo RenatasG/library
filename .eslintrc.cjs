@@ -1,4 +1,6 @@
 /* eslint-env node */
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
   root: true,
   extends: [
@@ -11,7 +13,6 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
-    // ...
-    'prettier/prettier': ['error', { singleQuote: true }],
+    'no-undef': 'off',
   },
 };
