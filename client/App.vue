@@ -5,21 +5,21 @@ import AppNavbarTop from '@/components/AppNavbarTop.vue';
 </script>
 
 <template>
-  <div class="bg-primary-500 h-screen w-screen flex overflow-x-hidden">
+  <div class="flex h-screen w-screen overflow-x-hidden bg-primary-500">
     <AppNavbarSide />
 
-    <div class="w-full flex flex-col">
+    <div class="flex w-full flex-1 flex-col">
       <AppNavbarTop />
 
       <div
-        class="flex flex-col flex-grow rounded-t-3xl overflow-y-auto bg-white/20 pl-12 pt-12"
+        class="flex flex-grow flex-col overflow-y-auto rounded-t-3xl bg-white/20 pl-12 pt-12"
       >
-        <main class="bg-light-500 rounded-t-3xl overflow-x-hidden flex-grow">
+        <main class="flex-grow overflow-x-hidden rounded-t-3xl bg-light-500">
           <RouterView />
         </main>
-
-        <AppFooter />
       </div>
+
+      <AppFooter />
     </div>
   </div>
 </template>

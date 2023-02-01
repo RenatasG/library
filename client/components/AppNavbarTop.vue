@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <header class="w-full sticky h-14">
+  <header class="h-14 w-full">
     <div class="flex"></div>
     header
   </header>
