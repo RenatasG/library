@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
 import axios from 'axios';
 import type { Book } from '@T/books';
 
