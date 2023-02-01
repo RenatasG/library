@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-/* eslint-env node */
 module.exports = {
   content: ['./index.html', './client/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
@@ -13,6 +12,9 @@ module.exports = {
         },
         mild: {
           500: '#F7F5EB',
+        },
+        light: {
+          500: '#EAE0DA',
         },
       },
     },
