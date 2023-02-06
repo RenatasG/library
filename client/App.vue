@@ -12,9 +12,9 @@ import AppNavbarTop from '@/components/AppNavbarTop.vue';
       <AppNavbarTop />
 
       <div
-        class="flex flex-grow flex-col overflow-y-auto rounded-t-3xl bg-white/20 pl-12 pt-12"
+        class="mr-4 flex flex-grow flex-col overflow-y-auto rounded-3xl border border-white bg-white/20 p-10"
       >
-        <main class="flex-grow overflow-x-hidden rounded-t-3xl bg-light-500">
+        <main class="flex-grow overflow-x-hidden">
           <RouterView />
         </main>
       </div>
