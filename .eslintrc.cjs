@@ -13,5 +13,6 @@ module.exports = {
   },
   rules: {
     'no-undef': 'off',
+    'prettier/prettier': 'off',
   },
 };
