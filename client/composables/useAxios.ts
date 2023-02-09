@@ -11,7 +11,7 @@ const req = new Axios({
   baseURL: import.meta.env.VITE_SERVER_URL,
 });
 
-export const useAxios = () => {
+export function useAxios() {
   return {
     async get<T>(
       url: string,
@@ -41,4 +41,4 @@ export const useAxios = () => {
     //   req.delete(url);
     // },
   };
-};
+}

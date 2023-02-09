@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppNavbarSide from '@/components/AppNavbarSide.vue';
-import AppFooter from '@/components/AppFooter.vue';
+// import AppFooter from '@/components/AppFooter.vue';
 import AppNavbarTop from '@/components/AppNavbarTop.vue';
 </script>
 
@@ -12,13 +12,13 @@ import AppNavbarTop from '@/components/AppNavbarTop.vue';
       <AppNavbarTop />
 
       <div
-        class="mr-2 mb-2 flex flex-grow flex-col overflow-y-auto rounded-3xl bg-white/20 p-10"
+        class="mr-4 mb-4 flex flex-grow flex-col overflow-y-auto rounded-3xl bg-white/60 p-10"
       >
         <main class="h-full">
           <RouterView />
         </main>
 
-        <AppFooter />
+        <!-- <AppFooter /> -->
       </div>
     </div>
   </div>
