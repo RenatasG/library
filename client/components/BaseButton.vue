@@ -31,10 +31,26 @@ const THEME_TO_STYLE = computed(() => {
       { [THEME_TO_STYLE]: !disabled },
       { 'shadow-sm hover:shadow-md focus:ring': !disabled },
       { 'cursor-not-allowed bg-gray-200 text-gray-500': disabled },
+      { 'pointer-events-none': loading || disabled },
       { 'flex items-center justify-center gap-2': icon },
     ]"
+    :data-loading="loading"
   >
-    <BaseIcon v-if="icon" :icon="icon" class="h-4 w-4" />
-    <slot />
+    <BaseIcon
+      v-if="loading"
+      icon="loading"
+      class="absolute h-4 w-4 animate-spin text-inherit"
+    />
+    <BaseIcon v-if="icon" :icon="icon" class="icon h-4 w-4" />
+    <span>
+      <slot />
+    </span>
   </button>
 </template>
+
+<style scoped>
+[data-loading='true'] .icon,
+[data-loading='true'] span {
+  color: transparent;
+}
+</style>
