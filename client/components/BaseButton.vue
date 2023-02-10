@@ -2,8 +2,9 @@
 type Theme = 'base' | 'inverted' | 'success';
 interface Props {
   theme?: Theme;
-  disabled: boolean;
-  loading: boolean;
+  disabled?: boolean;
+  loading?: boolean;
+  icon?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -30,8 +31,10 @@ const THEME_TO_STYLE = computed(() => {
       { [THEME_TO_STYLE]: !disabled },
       { 'shadow-sm hover:shadow-md focus:ring': !disabled },
       { 'cursor-not-allowed bg-gray-200 text-gray-500': disabled },
+      { 'flex items-center justify-center gap-2': icon },
     ]"
   >
+    <BaseIcon v-if="icon" :icon="icon" class="h-4 w-4" />
     <slot />
   </button>
 </template>

@@ -42,10 +42,12 @@ onMounted(() => {
         />
 
         <div class="mx-auto mt-8 flex w-11/12 flex-col gap-2">
-          <BaseButton theme="inverted">Reading</BaseButton>
-          <BaseButton>Completed</BaseButton>
-          <BaseButton>Stalled</BaseButton>
-          <BaseButton>Planned</BaseButton>
+          <BaseButton icon="book-open-page" theme="inverted">
+            Reading
+          </BaseButton>
+          <BaseButton icon="completed">Completed</BaseButton>
+          <BaseButton icon="book-plus-multiple">Shelved</BaseButton>
+          <BaseButton icon="bookshelf">Planning</BaseButton>
         </div>
       </div>
 

@@ -1,9 +1,14 @@
 import { createApp } from 'vue';
-import './assets/index.css';
+import BaseIcon from '@/components/BaseIcon.vue';
 
+import './assets/index.css';
 import router from './router';
 import App from './App.vue';
 
 const app = createApp(App);
 
-app.use(router).mount('#app');
+app.use(router);
+
+app.component('BaseIcon', BaseIcon);
+
+app.mount('#app');
