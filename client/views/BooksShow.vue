@@ -33,7 +33,7 @@ onMounted(() => {
   <div>
     <div v-if="isLoading">loading</div>
 
-    <div v-else class="flex gap-8">
+    <div v-else class="flex gap-14">
       <div>
         <img
           :src="book?.cover"
@@ -42,8 +42,8 @@ onMounted(() => {
         />
 
         <div class="mx-auto mt-8 flex w-11/12 flex-col gap-2">
-          <BaseButton>Reading</BaseButton>
-          <BaseButton theme="success">Completed</BaseButton>
+          <BaseButton theme="inverted">Reading</BaseButton>
+          <BaseButton>Completed</BaseButton>
           <BaseButton>Stalled</BaseButton>
           <BaseButton>Planned</BaseButton>
         </div>
