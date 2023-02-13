@@ -7,8 +7,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'AppHome',
       component: () => import('@/views/AppHome.vue'),
+    },
+    {
+      path: '/home',
+      redirect: { name: 'AppHome' },
     },
     ...bookRoutes,
   ],

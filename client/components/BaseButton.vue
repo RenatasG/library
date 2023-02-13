@@ -17,7 +17,7 @@ const THEME_TO_STYLE = computed(() => {
   return {
     base: 'bg-primary-600 text-white hover:bg-primary-600/70 focus:ring-primary-700',
     inverted:
-      'bg-white text-primary-700 hover:bg-white/40 focus:ring-primary-700',
+      'bg-white text-primary-700 hover:bg-primary-100 focus:ring-primary-700',
     success:
       'bg-emerald-400 text-white hover:bg-emerald-300 focus:ring-emerald-600',
   }[props.theme];
