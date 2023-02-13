@@ -29,8 +29,22 @@ onMounted(() => {
       <div class="h-[97%] border-r-[0.5px] border-r-current"></div>
     </div>
 
-    <p ref="p" :class="{ 'line-clamp-7': tooLong && collapsed }">
+    <p ref="p" :class="{ 'line-clamp-7 relative': tooLong && collapsed }">
       <slot />
     </p>
   </div>
 </template>
+
+<style scoped>
+p.line-clamp-7::before {
+  --line-height: 1.5;
+
+  content: '';
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  width: 100%;
+  height: calc(1em * var(--line-height));
+  background: linear-gradient(to bottom, transparent, #f7ebeb);
+}
+</style>
