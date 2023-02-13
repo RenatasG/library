@@ -1,14 +1,17 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router';
 import type { Book } from '@T/books';
 import { useAxios } from '@/composables/useAxios';
 
 import BaseButton from '@/components/BaseButton.vue';
+import BookDescription from '@/components/BookDescription.vue';
 
+const route = useRoute();
 const book = ref<Book | null>(null);
 const isLoading = ref(false);
 
 const fetchBook = () => {
-  useAxios().get<Book>('/books/1', {
+  useAxios().get<Book>(`/books/${route.params['id']}`, {
     onStart() {
       isLoading.value = true;
     },
@@ -33,11 +36,11 @@ onMounted(() => {
   <div>
     <div v-if="isLoading">loading</div>
 
-    <div v-else class="flex gap-14">
+    <div v-else-if="!!book" class="flex gap-14">
       <div>
         <img
-          :src="book?.cover"
-          :alt="`Cover of ${book?.title}`"
+          :src="book.cover"
+          :alt="`Cover of ${book.title}`"
           class="w-60 rounded-lg"
         />
 
@@ -52,11 +55,11 @@ onMounted(() => {
       </div>
 
       <div class="max-w-3xl">
-        <h1 class="text-2xl font-medium">{{ book?.title }}</h1>
+        <h1 class="text-2xl font-medium">{{ book.title }}</h1>
 
-        <p class="mt-4 text-gray-700">
-          {{ book?.description }}
-        </p>
+        <BookDescription v-if="book.description" class="mt-4">
+          {{ book.description }}
+        </BookDescription>
       </div>
     </div>
   </div>
