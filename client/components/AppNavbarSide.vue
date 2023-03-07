@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import AppNavbarLink from '@/components/AppNavbarLink.vue';
 
-type NavLink = {
-  href: string;
-  label: string;
-};
-
-const links: NavLink[] = [
+const links = [
   {
     href: '/',
     label: 'Home',

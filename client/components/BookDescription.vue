@@ -3,14 +3,14 @@ const MAX_LINES = 7;
 const collapsed = ref(true);
 const tooLong = ref(false);
 
-function toggle() {
-  collapsed.value = !collapsed.value;
-}
+const toggle = () => (collapsed.value = !collapsed.value);
 
 const p = ref<HTMLParagraphElement | null>(null);
 
 onMounted(() => {
-  const lineHeight = parseInt(window.getComputedStyle(p.value!).lineHeight);
+  if (!p.value) return;
+
+  const lineHeight = parseInt(window.getComputedStyle(p.value).lineHeight);
   const lines = Math.ceil(p.value!.offsetHeight / lineHeight);
 
   if (lines > MAX_LINES) {
@@ -26,7 +26,10 @@ onMounted(() => {
       class="absolute -left-3 flex h-full w-3 cursor-pointer items-center justify-center text-primary-600 hover:text-primary-500"
       @click="toggle"
     >
-      <div class="h-[97%] border-r-[0.5px] border-r-current"></div>
+      <div
+        class="border-r-[0.5px] border-r-current"
+        :class="collapsed ? 'h-[93%]' : 'h-[97%]'"
+      ></div>
     </div>
 
     <p
@@ -43,15 +46,16 @@ onMounted(() => {
 p {
   pointer-events: none;
 }
-p.line-clamp-7::before {
+p.line-clamp-7::after {
   --line-height: 1.5;
 
   content: '';
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
   pointer-events: all;
   cursor: pointer;
-  width: 100%;
   height: calc(1em * var(--line-height));
   background: linear-gradient(to bottom, transparent, #f7ebeb);
 }
