@@ -26,5 +26,10 @@
       "</template>"
     ],
     "description": "vue component template"
+  },
+  "withDefaults": {
+    "prefix": "withDefaults",
+    "body": ["const props = withDefaults(defineProps<Props>(), {", "$1", "})"],
+    "description": "quickstart props with defaults"
   }
 }
