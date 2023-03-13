@@ -1,4 +1,12 @@
+import type { Component } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
+
+export interface Route {
+  path: string;
+  name: string;
+  component: Component;
+  children?: Route[];
+}
 
 import bookRoutes from './books';
 

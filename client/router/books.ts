@@ -1,6 +1,6 @@
-import type { Route } from '@/types/routes';
+import type { Route } from './index';
 
-const bookRoutes = [
+const routes: Route[] = [
   {
     path: '/books',
     name: 'BooksIndex',
@@ -11,6 +11,6 @@ const bookRoutes = [
     name: 'BooksShow',
     component: () => import('@/views/BooksShow.vue'),
   },
-] satisfies Route[];
+];
 
-export default bookRoutes;
+export default routes;
