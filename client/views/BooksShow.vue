@@ -7,6 +7,9 @@ import BaseButton from '@/components/BaseButton.vue';
 import BookDescription from '@/components/BookDescription.vue';
 import TabButton from '@/components/TabButton.vue';
 
+import mockedStaff from '../../mocks/useStaff';
+import StaffCard from '@/components/StaffCard.vue';
+
 const route = useRoute();
 const book = ref<Book | null>(null);
 const isLoading = ref(false);
@@ -49,9 +52,9 @@ onMounted(() => {
           <BaseButton icon="book-open-page" theme="inverted">
             Reading
           </BaseButton>
-          <BaseButton icon="completed">Completed</BaseButton>
-          <BaseButton icon="book-plus-multiple">Shelved</BaseButton>
-          <BaseButton icon="bookshelf">Planning</BaseButton>
+          <BaseButton icon="book-plus-multiple">Completed</BaseButton>
+          <BaseButton icon="bookshelf">Shelved</BaseButton>
+          <BaseButton icon="">Planning</BaseButton>
         </div>
       </div>
 
@@ -63,8 +66,18 @@ onMounted(() => {
         </BookDescription>
 
         <div class="mt-4 flex flex-wrap gap-2 px-8">
-          <TabButton active>Editions</TabButton>
+          <TabButton active>Staff</TabButton>
+          <TabButton>Editions</TabButton>
           <TabButton>Stats</TabButton>
+        </div>
+
+        <div class="mt-8 flex gap-8">
+          <StaffCard
+            v-for="staff in mockedStaff"
+            v-bind="staff"
+            :key="staff.id"
+            role="Author"
+          />
         </div>
       </div>
     </div>
