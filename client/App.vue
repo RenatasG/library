@@ -5,7 +5,7 @@ import AppNavbarTop from '@/components/AppNavbarTop.vue';
 </script>
 
 <template>
-  <div class="flex h-screen w-screen bg-primary-500">
+  <div class="flex h-screen w-screen bg-primary-600">
     <AppNavbarSide />
 
     <div class="flex w-full flex-col">

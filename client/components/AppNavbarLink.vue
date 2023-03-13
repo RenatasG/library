@@ -7,7 +7,7 @@ defineProps<{
 <template>
   <RouterLink
     :to="href"
-    class="inline-block w-full cursor-pointer rounded-lg bg-primary-600 p-2 text-white transition hover:bg-primary-550"
+    class="inline-block w-full cursor-pointer rounded-lg p-2 text-gray-900 transition hover:bg-primary-550"
   >
     <slot />
   </RouterLink>

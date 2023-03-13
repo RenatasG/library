@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
 import type { Book } from '@T/books';
+import { useRoute } from 'vue-router';
 import { useAxios } from '@/composables/useAxios';
 
 import BaseButton from '@/components/BaseButton.vue';
 import BookDescription from '@/components/BookDescription.vue';
+import TabButton from '@/components/TabButton.vue';
 
 const route = useRoute();
 const book = ref<Book | null>(null);
@@ -60,6 +61,11 @@ onMounted(() => {
         <BookDescription v-if="book.description" class="mt-4">
           {{ book.description }}
         </BookDescription>
+
+        <div class="mt-4 flex flex-wrap gap-2 px-8">
+          <TabButton active>Editions</TabButton>
+          <TabButton>Stats</TabButton>
+        </div>
       </div>
     </div>
   </div>
