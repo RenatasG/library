@@ -5,17 +5,19 @@ import { useAxios } from '@/composables/useAxios';
 
 import BaseButton from '@/components/BaseButton.vue';
 import BookDescription from '@/components/BookDescription.vue';
-import TabButton from '@/components/TabButton.vue';
-
-import mockedStaff from '../../mocks/useStaff';
-import StaffCard from '@/components/StaffCard.vue';
+import BaseTab from '@/components/BaseTab.vue';
+import BooksShowTabs from '@/components/BooksShowTabs.vue';
+import BooksShowStaffTab from '@/components/BooksShowStaffTab.vue';
+import BooksShowEditionsTab from '@/components/BooksShowEditionsTab.vue';
 
 const route = useRoute();
 const book = ref<Book | null>(null);
 const isLoading = ref(false);
 
+const bookRoute = computed(() => `/books/${route.params['id']}`);
+
 const fetchBook = () => {
-  useAxios().get<Book>(`/books/${route.params['id']}`, {
+  useAxios().get<Book>(bookRoute.value, {
     onStart() {
       isLoading.value = true;
     },
@@ -65,20 +67,14 @@ onMounted(() => {
           {{ book.description }}
         </BookDescription>
 
-        <div class="mt-4 flex flex-wrap gap-2 px-8">
-          <TabButton active>Staff</TabButton>
-          <TabButton>Editions</TabButton>
-          <TabButton>Stats</TabButton>
-        </div>
-
-        <div class="mt-8 flex gap-8">
-          <StaffCard
-            v-for="staff in mockedStaff"
-            v-bind="staff"
-            :key="staff.id"
-            role="Author"
-          />
-        </div>
+        <BooksShowTabs class="mt-4" v-slot="{ tabs }">
+          <BaseTab :tab="tabs.staff">
+            <BooksShowStaffTab />
+          </BaseTab>
+          <BaseTab :tab="tabs.editions">
+            <BooksShowEditionsTab />
+          </BaseTab>
+        </BooksShowTabs>
       </div>
     </div>
   </div>
